@@ -5,11 +5,11 @@
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace UnitTest
-{		
+{
 	TEST_CLASS(UnitTest1)
 	{
 	public:
-		
+
 		TEST_METHOD(TestCorrect)
 		{
 			int A[4];
@@ -98,6 +98,46 @@ namespace UnitTest
 			Array.DeleteChar(A);
 		}
 
+		TEST_METHOD(CountingSort_Array)
+		{
+			Array Array;
+			char *A = NULL;
+			bool check = true;
+			Array.CharCreate(A, 10);
+			A[0] = 'a';
+			A[1] = 'j';
+			A[2] = 'i';
+			A[3] = 'h';
+			A[4] = 'f';
+			A[5] = 'g';
+			A[6] = 'd';
+			A[7] = 'e';
+			A[8] = 'c';
+			A[9] = 'b';
+			Array.CountingSort(A, 10);
+
+			char a[10];
+			a[0] = 'a';
+			a[1] = 'b';
+			a[2] = 'c';
+			a[3] = 'd';
+			a[4] = 'e';
+			a[5] = 'f';
+			a[6] = 'g';
+			a[7] = 'h';
+			a[8] = 'i';
+			a[9] = 'j';
+
+			int i = 0;
+			while(i<10)
+			{
+				if (a[i] != A[i])
+					check = false;
+				i++;
+			}
+			Assert::IsTrue(check);
+			Array.DeleteChar(A);
+		}
 
 
 		TEST_METHOD(BinarySearch)
