@@ -1,3 +1,13 @@
+#include <iostream>
+#include "Sort.h"
+#include <ctime>
+#include <time.h>
+#include <cstdlib>
+#include <windows.h>
+
+using namespace std;
+
+
 void Array::Create(int *&Arr, const int size) //Выделение памяти под массив типа int
 {
 	if (size > 0)
@@ -14,7 +24,7 @@ void Array::CharCreate(char *&Arr, const int size) //Выделение памя
 
 void Array::Delete(int *Arr)    //Освобождение памяти
 {
-	delete[]Arr;    
+	delete[]Arr;
 	Arr = NULL;   //указываем, что теперь массив должен находится в новом зарезервированном месте и указывает вникуда
 }
 
@@ -137,7 +147,7 @@ void Array::QuickSort(int *Arr, int left, int size)
 	int l_hold = left;
 	int r_hold = size;
 	median = Arr[left];
-	while (left < size) 
+	while (left < size)
 	{
 		while ((Arr[size] >= median) && (left < size))
 			size--;
@@ -158,7 +168,7 @@ void Array::QuickSort(int *Arr, int left, int size)
 	median = left;
 	left = l_hold;
 	size = r_hold;
-	if (left < median) 
+	if (left < median)
 		QuickSort(Arr, left, median - 1);
 	if (size > median)
 		QuickSort(Arr, median + 1, size);
