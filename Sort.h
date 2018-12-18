@@ -24,4 +24,9 @@ public:
 	void CharFill(char *Arr, const int size);
 	void Print_Array_Char(char *Arr, const int size);
 	void CountingSort(char* Arr, int size);
+	
 };
+
+int correct(int *Arr, int size);
+void shuffle(int *Arr, int size);
+void bogoSort(int *Arr, int size);
