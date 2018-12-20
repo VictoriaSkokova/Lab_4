@@ -10,6 +10,43 @@ namespace UnitTest
 	{
 	public:
 
+		
+		TEST_METHOD(Exception_1)
+		{
+			int *Array_int = NULL;
+			Array Sorting_array;
+			
+			char error;
+			try
+			{
+				Sorting_array.Create(Array_int, -1);
+			}
+			catch (const std::out_of_range& error)
+			{
+				Assert::AreEqual("Wrong index", error.what());
+			}
+		}
+
+
+		TEST_METHOD(Exception_2)
+		{
+			int *Array_char = NULL;
+			Array Sorting_array;
+
+			char error;
+			try
+			{
+				Sorting_array.Create(Array_char, -1);
+			}
+			catch (const std::out_of_range& error)
+			{
+				Assert::AreEqual("Wrong index", error.what());
+			}
+		}
+
+		
+		
+		
 		TEST_METHOD(TestCorrect)
 		{
 			int A[4];
