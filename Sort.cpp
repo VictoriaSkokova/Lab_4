@@ -13,13 +13,18 @@ void Array::Create(int *&Arr, const int size) //Выделение памяти 
 	if (size > 0)
 		Arr = new int[size];
 	else
-		cout << "Ошибка в размере массива";
+		throw out_of_range("Wrong index");
 }
 
 void Array::CharCreate(char *&Arr, const int size) //Выделение памяти под массив типа char
 {
-	setlocale(LC_ALL, "Russian");
-	Arr = new char[size];
+	if (size > 0)
+	{
+		setlocale(LC_ALL, "Russian");
+		Arr = new char[size];
+	}
+	else
+		throw out_of_range("Wrong index");
 }
 
 void Array::Delete(int *Arr)    //Освобождение памяти
